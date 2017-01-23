@@ -11,38 +11,45 @@ import CoreData
 
 class GoodGirlOrBoyTableViewController: UITableViewController {
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
     var controller: NSFetchedResultsController<BehavioralEvent>!
+
     var context: NSManagedObjectContext {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext
+    }
+    @IBAction func buttonTapped(_ sender: UIBarButtonItem) {
+        print("Add button tapped!")
+        let behavioralEntity = BehavioralEvent(context: context)
+        behavioralEntity.childsName = "Hugo"
+        behavioralEntity.observedBehavior = "fighting"
+        behavioralEntity.socialness = false
+        appDelegate.saveContext()
+        
+        try! controller.performFetch()
+        tableView.reloadData()
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.leftBarButtonItem = editButtonItem
-        navigationItem.rightBarButtonItem = UIBarButtonItem (barButtonSystemItem: .add, target: self, action: #selector (addButtonPressed))
+        //navigationItem.leftBarButtonItem = editButtonItem
+        //navigationItem.rightBarButtonItem = UIBarButtonItem (barButtonSystemItem: .add, target: self, action: #selector (addButtonPressed))
         
         let request: NSFetchRequest<BehavioralEvent> = BehavioralEvent.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: #keyPath(BehavioralEvent.timestamp), ascending: false)]
-        controller = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        controller = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil,
+            cacheName: nil)
         try! controller.performFetch() //anything goes wrong, will explode
     }
+
     func addButtonPressed() {
-        _ = BehavioralEvent(context: context)
-        try! context.save()
-        
-        try! controller.performFetch()
-        tableView.reloadData()
     }
     
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        //        if let sections = controller.sections {
-        //            let info = sections[sections]
-        //            return info.numberOfObjects
-        //        }
-        return 0
+        return controller.sections?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -58,6 +65,8 @@ class GoodGirlOrBoyTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EntryCell", for: indexPath)
         let object = controller.object(at: indexPath)
         cell.textLabel?.text = object.childsName
+        cell.detailTextLabel?.text = object.observedBehavior
+        
         return cell
     }
     

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="omE-At-JKf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oNk-mk-qJ2">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,52 +9,74 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Good Girl or Boy-->
-        <scene sceneID="boW-xF-sSV">
+        <!--Good Girl Or Boy Table View Controller-->
+        <scene sceneID="p6L-qf-VT2">
             <objects>
-                <tableViewController id="G71-Pt-AFb" customClass="GoodGirlOrBoyTableViewController" customModule="GoodGIrlOrBoy" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iks-6O-IST">
+                <tableViewController id="k1d-0M-ekG" customClass="GoodGirlOrBoyTableViewController" customModule="GoodGIrlOrBoy" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="pxA-W5-JVq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EntryCell" id="2u2-92-Nns">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EntryCell" textLabel="Ywq-jK-gcb" detailTextLabel="wtO-2k-aGA" style="IBUITableViewCellStyleSubtitle" id="VPh-au-Aur">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2u2-92-Nns" id="6ha-qC-sdP">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VPh-au-Aur" id="rMG-ql-LRe">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ywq-jK-gcb">
+                                            <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wtO-2k-aGA">
+                                            <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="G71-Pt-AFb" id="rwi-mE-oB5"/>
-                            <outlet property="delegate" destination="G71-Pt-AFb" id="8gc-l3-ZjU"/>
+                            <outlet property="dataSource" destination="k1d-0M-ekG" id="hvC-nS-Gnn"/>
+                            <outlet property="delegate" destination="k1d-0M-ekG" id="OTP-ND-Wqg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Good Girl or Boy" id="EvT-CB-sLf"/>
+                    <navigationItem key="navigationItem" id="U65-rf-U8b">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="FGG-x1-ic2">
+                            <connections>
+                                <action selector="buttonTapped:" destination="k1d-0M-ekG" id="yEj-Ck-UEb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KZc-cs-put" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2HP-00-PH0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="140.77961019490255"/>
+            <point key="canvasLocation" x="1044" y="132.68365817091455"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="99s-EN-Psp">
+        <scene sceneID="XB1-LT-6TD">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="omE-At-JKf" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oNk-mk-qJ2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ime-vC-k1c">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KJt-Xt-wCw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="G71-Pt-AFb" kind="relationship" relationship="rootViewController" id="SFJ-dt-TUW"/>
+                        <segue destination="k1d-0M-ekG" kind="relationship" relationship="rootViewController" id="M4p-kR-zea"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cQx-48-o3i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="93B-zb-Xer" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="140.77961019490255"/>
+            <point key="canvasLocation" x="104.8" y="132.68365817091455"/>
         </scene>
     </scenes>
 </document>
